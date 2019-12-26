@@ -1,0 +1,11 @@
+name=TM1630LED
+version=1.0.0
+author=kurobeko
+maintainer=kurobeko
+sentence=Library for TM1630 LED driver. Provides a 4-digit 7-segment display.
+paragraph=The setting of TM1630 is 5 digits 7 segments, but this library supports only 4 digits 7 segments. The library is simple, with only these three functions: begin (), Init (), Disp (). The display start address is fixed at 0x00.
+category=Display
+url=http:
+architectures=avr
+includes=
+depends=
