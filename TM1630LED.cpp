@@ -49,23 +49,25 @@ void TM1630LED::Disp(uint16_t num)
   digitalWrite(STBPin, HIGH);
    
   //一桁目
-  digitalWrite(STBPin, LOW);
-  shiftOut(DIOPin,CLKPin,LSBFIRST,ADRS);
+   digitalWrite(STBPin, LOW);
+  shiftOut(DIOPin,CLKPin,LSBFIRST,ADRS|6);
   shiftOut(DIOPin,CLKPin,LSBFIRST,d[num/1000]);
-  digitalWrite(STBPin, HIGH);
+  digitalWrite(STBPin, HIGH); 
   //二桁目
   digitalWrite(STBPin, LOW);
-  shiftOut(DIOPin,CLKPin,LSBFIRST,ADRS|2);
+  shiftOut(DIOPin,CLKPin,LSBFIRST,ADRS|4);
   shiftOut(DIOPin,CLKPin,LSBFIRST,d[(num%1000)/100]);
   digitalWrite(STBPin, HIGH);
+  
   //三桁目
   digitalWrite(STBPin, LOW);
-  shiftOut(DIOPin,CLKPin,LSBFIRST,ADRS|4);
+  shiftOut(DIOPin,CLKPin,LSBFIRST,ADRS|2);
   shiftOut(DIOPin,CLKPin,LSBFIRST,d[((num%1000)%100/10)]);
   digitalWrite(STBPin, HIGH);
+ 
   //四桁目
   digitalWrite(STBPin, LOW);
-  shiftOut(DIOPin,CLKPin,LSBFIRST,ADRS|6);
+  shiftOut(DIOPin,CLKPin,LSBFIRST,ADRS);
   shiftOut(DIOPin,CLKPin,LSBFIRST,d[((num%1000)%100%10)]);
   digitalWrite(STBPin, HIGH);
   
