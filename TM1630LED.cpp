@@ -33,6 +33,8 @@ void TM1630LED::Init(void)
   }
   digitalWrite(STBPin, HIGH);
 
+
+
   digitalWrite(STBPin, LOW);
   shiftOut(DIOPin,CLKPin,LSBFIRST,DISP);
   digitalWrite(STBPin, HIGH);
